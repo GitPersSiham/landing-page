@@ -1,22 +1,27 @@
 export default [
-    {
-      title: "Home",
-      url: "#"
-    },
-    {
-      title: "Rooms",
-      url: "#"
-    },
-    {
-      title: "Services",
-      url: "#"
-    },
-    {
-      title: "About",
-      url: "#"
-    },
-    {
-      title: "Mobile App",
-      url: "#"
-    }
-  ];
+  {
+    title: "Home",
+    url: "#",
+    isActive: false
+  },
+  {
+    title: "Rooms",
+    url: "#",
+    isActive: true
+  },
+  {
+    title: "Services",
+    url: "#",
+    isActive: false
+  },
+  {
+    title: "About",
+    url: "#",
+    isActive: false
+  },
+  {
+    title: "Mobile App",
+    url: "#",
+    isActive: false
+  }
+];
