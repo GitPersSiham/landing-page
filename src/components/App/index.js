@@ -9,7 +9,8 @@ import Rooms from '../Room';
 import navElements from '../Navigation/data';
 import roomsElements from '../Room/data';
 import markdown from '../About/data';
-
+import DevMobileApp from '../DevMobileApp';
+import mobileAppElements from '../DevMobileApp/data';
 const App = () => {
     return (
         <div>
@@ -18,6 +19,7 @@ const App = () => {
             <Rooms elements={roomsElements} />
             <Services elements={servicesDatas} />
             <About markdown={markdown}  />
+            <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
         </div>
     );
 };
