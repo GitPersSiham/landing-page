@@ -1,26 +1,22 @@
 import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import PropTypes from 'prop-types';
+
 import './index.css';
 
-const About = ({address, owner, swimmingPool}) => {
+const About = ({markdown}) => {
  
  
   return(
     <div>
-        <p>
-            <span className="label">Address:</span> {address}
-        </p>
-        <p>
-        <span className="label">Owner:</span> {owner}
-        </p>
-        <p>{swimmingPool ? 
-            "WE HAVE A SWIMMING POOL! YAY!"
-        : "We don't have a swimming pool. Go somewhere else."}
-        </p>
+        <ReactMarkdown source={markdown} />
     </div>
   )
 }
 
-
+About.propTypes = {
+  markdown: PropTypes.string.isRequired,
+};
 
 
 export default About;
