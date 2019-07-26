@@ -42,12 +42,14 @@ const App = () => (
         <Hello name="tata" />
         <Hello name="titi" />
 
+
+
         <Services
-            titre={ServicesArray[2].titre}
-            categorie={ServicesArray[2].categorie}
+            titre={ServicesArray[1].titre}
+            categorie={ServicesArray[1].categorie}
         />
+
     </div>
 );
-console.log(ServicesArray[1].titre);
 
 export default App;
