@@ -1,6 +1,12 @@
+
 import React from 'react';
 import Hello from '../Hello';
 import Services from '../Services';
+import Navigation from '../Navigation';
+import About from '../About';
+import Rooms from '../Room';
+import navElements from '../Navigation/data';
+import roomsElements from '../Room/data';
 
 const ServicesArray = [
     {
@@ -36,20 +42,25 @@ const ServicesArray = [
     }
 ];
 
-const App = () => (
-    <div>
-        <Hello />
-        <Hello name="tata" />
-        <Hello name="titi" />
+
+const App = () => {
+    return (
+        <div>
+            <Hello />
+            <Hello name="tata" />
+            <Hello name="titi" />
 
 
 
-        <Services
-            titre={ServicesArray[1].titre}
-            categorie={ServicesArray[1].categorie}
-        />
+            <Services
+                titre={ServicesArray[1].titre}
+                categorie={ServicesArray[1].categorie}
+            />
 
-    </div>
-);
-
+            <Navigation links={navElements} />
+            <Rooms elements={roomsElements} />
+            <About address="55 Times Square Avenue" owner="Bob" swimmingPool={false} />
+        </div>
+    );
+};
 export default App;
