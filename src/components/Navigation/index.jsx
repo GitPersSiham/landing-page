@@ -8,6 +8,9 @@ const Navigation = ({ links, mode }) => {
       className={link.isActive ? "item-active" : "item-inactive"}
       key={link.title}
       href={link.url}
+      onClick={() => {
+        console.log(links[index].title);
+      }}
     >
       {link.title}
     </a>
