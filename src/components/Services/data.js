@@ -14,7 +14,6 @@ export default [
         titre: "J'ai besoin de vêtements",
         categorie: 'Linge',
     },
-    ,
     {
         id: 4,
         titre: " J'ai envie d'un restaurant ",

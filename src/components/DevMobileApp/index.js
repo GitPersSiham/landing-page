@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactMarkdown from 'react-markdown';
-import Hello from '../Hello';
 import './index.css';
 
 
@@ -15,7 +14,10 @@ const DevMobileApp = (props) => (
 
 DevMobileApp.propTypes = {
     randomText: PropTypes.string,
-    dataMobileApp: PropTypes.array
+    dataMobileApp: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        subtitle: PropTypes.string.isRequired,
+    })
 }
 
 export default DevMobileApp;
