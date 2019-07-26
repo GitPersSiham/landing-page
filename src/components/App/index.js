@@ -9,7 +9,7 @@ import roomsElements from "../Room/data";
 const App = () => {
   return (
     <div>
-      <Navigation mode="vertical" links={navElements} />
+      <Navigation mode="horizontal" links={navElements} />
       <Hello name="Toto" />
       <Rooms elements={roomsElements} />
       <About
