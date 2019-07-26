@@ -7,8 +7,8 @@ return (
 <div className="room-component">
 <ul>
 {
-elements.map(({name, adress}) => (
-<li>
+elements.map(({name, adress, id}) => (
+<li key={id}>
 <p>Hello : {name}</p>
 <p>Address : {adress} </p>
 </li>
