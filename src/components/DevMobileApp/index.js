@@ -11,11 +11,12 @@ const DevMobileApp = (props) => (
     <div className="mobile-component">
         <ReactMarkdown source={title} />
         <ReactMarkdown source={subtitle} />
+        <p>{props.randomText}</p>
     </div>
 );
 
 DevMobileApp.propTypes = {
-    
+    randomText: PropTypes.string,
 }
 
 export default DevMobileApp;
