@@ -1,12 +1,11 @@
 import React from 'react';
 import Hello from '../Hello';
+import DevMobileApp from '../DevMobileApp';
 
 
 const App = () => (
     <div>
-        <Hello />
-        <Hello name="tata"/>
-        <Hello name="titi" />
+        <DevMobileApp />
     </div>
 );
 
