@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './index.css';
 
 const Services = ({ elements }) => {
@@ -16,4 +17,10 @@ const Services = ({ elements }) => {
 
     )
 }
+
+Services.propTypes = {
+    titre: PropTypes.string,
+    categorie: PropTypes.string,
+}
+
 export default Services;
