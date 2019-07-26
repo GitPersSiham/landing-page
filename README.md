@@ -5,11 +5,11 @@ url de l'API: http://ec2-18-203-198-107.eu-west-1.compute.amazonaws.com:3000/
 
 Chaque équipe se mette sur une branche qui lui correspond
 
-- dev-navigation
-- dev-rooms
-- dev-services
-- dev-about
-- dev-mobile-app
+- dev-navigation (1er groupe)
+- dev-rooms (2eme groupe)
+- dev-services (3eme groupe)
+- dev-about (4eme groupe)
+- dev-mobile-app (5eme groupe)
 
 Pour chaque composant
 
