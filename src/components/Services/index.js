@@ -1,12 +1,19 @@
 import React from 'react';
 import './index.css';
 
-const Services = ({ titre, categorie }) => {
+const Services = ({ elements }) => {
     return (
-        <div className="services-component">
-            <h2 class="categorie">{categorie}</h2>
-            <p class="title">{titre}</p>
+        <div className="service-component">
+            {
+                elements.map(({ id, titre, categorie }) => (
+                    <div class="container" key={id}>
+                        <p class="title">{id} : {titre}</p>
+                        <p class="categorie">Categorie : {categorie} </p>
+                    </div>
+                ))
+            }
         </div>
-    );
-};
+
+    )
+}
 export default Services;

@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './index.css';
 
 const Hello = ({ name }) => {
@@ -9,5 +11,11 @@ const Hello = ({ name }) => {
         </div>
     );
 
+};
+
+
+
+Hello.propTypes = {
+    name: PropTypes.string.isRequired,
 };
 export default Hello;
