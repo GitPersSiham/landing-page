@@ -1,13 +1,15 @@
 
 import React from 'react';
-import Hello from '../Hello';
-import Rooms from '../Rooms';
+import Navigation from '../Navigation';
+import About from '../About';
 
+import navElements from '../Navigation/data';
 
+const App = () => {
   return (
     <div>
-      <Navigation links={nav_elements} />
-      <About />
+      <Navigation links={navElements} />
+      <About address="55 Times Square Avenue" owner="Bob" swimmingPool={false} />
     </div>
   );
 };
