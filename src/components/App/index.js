@@ -8,6 +8,7 @@ import DevMobileApp from '../DevMobileApp';
 
 import navElements from '../Navigation/data';
 import roomsElements from '../Room/data';
+import mobileAppElements from '../DevMobileApp/data';
 
 const App = () => {
   return (
@@ -15,7 +16,7 @@ const App = () => {
       <Navigation links={navElements} />
       <Rooms elements={roomsElements} />
       <About address="55 Times Square Avenue" owner="Bob" swimmingPool={false} />
-      <DevMobileApp text="Random text" />
+      <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
     </div>
   );
 };
