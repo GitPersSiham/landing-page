@@ -1,5 +1,43 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+# TODOS
+url de l'API: http://ec2-18-203-198-107.eu-west-1.compute.amazonaws.com:3000/
+
+Chaque équipe se mette sur une branche qui lui correspond
+
+- dev-navigation
+- dev-rooms
+- dev-services
+- dev-about
+- dev-mobile-app
+
+Pour chaque composant
+
+* Un dossier du nom du composant
+* Un fichier index.css
+* Utiliser les props pour donner le contenu
+
+Pour la nav
+
+j'aimerais que le composant ai un prop "elements" qui contienne un tableau d'objets, où chaque objet servira à fabriquer un lien
+
+```javascript
+
+const elements = [
+    {
+        title: 'Home',
+        url: '#'
+    },
+    {
+        title: 'Services',
+        url: '#'
+    }
+]
+
+<Navigation elements={elements} />
+
+```
+
 ## Available Scripts
 
 In the project directory, you can run:
