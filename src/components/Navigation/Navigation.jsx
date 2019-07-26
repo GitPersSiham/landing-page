@@ -3,7 +3,7 @@ import "./Navigation.css";
 
 const Navigation = ({ links }) => {
   const listItems = links.map(link => (
-    <a href={link.url} key={link.title}>
+    <a href={link.url}>
       {link.title}
     </a>
   ));
