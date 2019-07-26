@@ -24,8 +24,6 @@ const Navigation = ({ links, mode }) => {
     navbarClasses += "navigation-horizontal";
   }
 
-  console.log(mode);
-
   return (
     <div className={navbarClasses}>
       <ul>{listItems}</ul>
