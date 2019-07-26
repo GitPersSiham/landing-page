@@ -1,0 +1,15 @@
+.services-component {
+    border: solid blue 5px;
+    border-radius: 30px;
+    padding: 2em;
+    text-align: center;
+}
+
+.title {
+    
+}
+
+.categorie {
+  font-weight: bold;
+  text-transform: uppercase;
+}
