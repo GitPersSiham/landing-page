@@ -14,16 +14,19 @@ class Rooms extends Component {
       singleRoomView: false,
       currentRoom: null,
       currentRoomsDisplayed: [],
-      currentMiddleDisplayIndex: 0
+      currentMiddleDisplayIndex: null,
+      displayOffset: null,
+      numberOfMultipleRooms: 3
     }
   }
 
   componentDidMount(){
     axios.get("http://localhost:3000/rooms").then(res =>{
       let allRooms = res.data;
-      let currentMiddleDisplayIndex = 1;
-      let currentRoomsDisplayed = allRooms.slice(0, 3);
-      this.setState({allRooms, currentRoomsDisplayed, currentMiddleDisplayIndex});
+      let currentMiddleDisplayIndex = Math.floor(this.state.numberOfMultipleRooms / 2);
+      let currentRoomsDisplayed = allRooms.slice(0, this.state.numberOfMultipleRooms);
+      let displayOffset = Math.floor(this.state.numberOfMultipleRooms / 2);
+      this.setState({allRooms, currentRoomsDisplayed, currentMiddleDisplayIndex, displayOffset});
     })
   }
 
@@ -49,16 +52,24 @@ class Rooms extends Component {
   scroll = (direction) => () => {
     let previousRoomsDisplayed = this.state.currentRoomsDisplayed;
     let previousMiddleDisplayIndex = this.state.currentMiddleDisplayIndex;
+    let itemTotal = this.state.allRooms.length;
+    let offset = this.state.displayOffset;
     let currentMiddleDisplayIndex;
     let offsetIndex;
+    let currentRoomsDisplayed = previousRoomsDisplayed;
+    let newRoom;
     if (direction === "right"){
-      currentMiddleDisplayIndex = (previousMiddleDisplayIndex < (this.state.allRooms.length - 2)) ? previousMiddleDisplayIndex + 1 : 0;
-      offsetIndex = currentMiddleDisplayIndex + 1 < this.state.allRooms.length ? currentMiddleDisplayIndex + 1 : 0;
+      currentMiddleDisplayIndex = previousMiddleDisplayIndex < itemTotal -1 ? previousMiddleDisplayIndex + 1 : 0;
+      offsetIndex = (currentMiddleDisplayIndex + offset < itemTotal) ? (currentMiddleDisplayIndex + offset) : ((currentMiddleDisplayIndex + offset) - itemTotal);
+      newRoom = this.state.allRooms[offsetIndex];
+      currentRoomsDisplayed = [...previousRoomsDisplayed.slice(1), newRoom];
     } else if (direction === "left"){
-      currentMiddleDisplayIndex = (previousMiddleDisplayIndex > 1) ? previousMiddleDisplayIndex - 1 : 30;
-      offsetIndex = currentMiddleDisplayIndex - 1 > -1 ? currentMiddleDisplayIndex - 1 : 30;
+      currentMiddleDisplayIndex = previousMiddleDisplayIndex > 0 ? previousMiddleDisplayIndex - 1 : itemTotal - 1;
+      offsetIndex = currentMiddleDisplayIndex - offset > -1 ? currentMiddleDisplayIndex - offset : ((itemTotal) + (currentMiddleDisplayIndex - offset))
+      newRoom = this.state.allRooms[offsetIndex];
+      currentRoomsDisplayed = [newRoom, ...previousRoomsDisplayed.slice(0, -1)];
     }
-    let currentRoomsDisplayed = previousRoomsDisplayed.slice(1).concat(this.state.allRooms[offsetIndex]);
+    console.log({offset, currentMiddleDisplayIndex, offsetIndex});
     this.setState({currentRoomsDisplayed, currentMiddleDisplayIndex});
   }
 
