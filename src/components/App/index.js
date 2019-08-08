@@ -4,11 +4,10 @@ import Hello from '../Hello';
 import Services from '../Services';
 import servicesDatas from '../Services/data';
 import Navigation from '../Navigation';
-import About from '../About';
+import Testimonies from '../Testimonies';
 import Rooms from '../Room';
 import navElements from '../Navigation/data';
 import roomsElements from '../Room/data';
-import markdown from '../About/data';
 import DevMobileApp from '../DevMobileApp';
 import mobileAppElements from '../DevMobileApp/data';
 const App = () => {
@@ -18,7 +17,7 @@ const App = () => {
             <Hello name="Toto" />
             <Rooms elements={roomsElements} />
             <Services elements={servicesDatas} />
-            <About markdown={markdown}  />
+            <Testimonies />
             <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
         </div>
     );
