@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 const Navigation = ({ links, mode }) => {
   const listItems = links.map((link, index) => (
     <a
-      className={link.isActive ? "item-active" : "item-inactive"}
-      key={link.title}
+      className={link.name}
+      key={link.name}
       href={link.url}
       onClick={() => {
         console.log(links[index].title);
