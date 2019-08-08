@@ -8,6 +8,7 @@ class MultipleRooms extends Component {
   render() {
     return (
         <Card.Group>
+          <Button onClick={this.props.scrollLeftAction}>Left</Button>
           {this.props.rooms.map(({image,  city, night_price, currency}, index) => (
             <Card>
               <Image src={image} size="small" />
@@ -18,6 +19,7 @@ class MultipleRooms extends Component {
               </Card.Content>
             </Card>
           )) }
+          <Button onClick={this.props.scrollRightAction}>Right</Button>
         </Card.Group> 
     );
   }

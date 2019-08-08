@@ -1,43 +1,5 @@
-/* .room-component {
-    border: 1px solid #333;
-    border-radius: 5px;
-    margin: 15px;
-    padding: 15px;
-    text-align: center;
-} */
-
 .container {
     width: 100%;
     padding: 20px;
     margin: 10px;
 }
-
-.container-list {
-    
-    display: flex;
-    flex-direction: row;
-    overflow: auto;
-}
-
-/*.room-list {
-    border: 1px solid #333;
-    border-radius: 5px;
-    list-style: none;
-    padding: 5px 5px;
-    margin: 0px 10px;
-    text-align: center;
-    line-height: 1.4em;
-
-}
-
-.room-list:hover {
-    background-color: lightgray;
-}
-
-.image {
-    display: block;
-    width : 100px;
-    height: 100px;
-    margin: 0 auto;
-    padding-bottom: 15px;
-} */
