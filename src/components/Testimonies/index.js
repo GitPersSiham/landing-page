@@ -1,16 +1,31 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import { Icon } from 'semantic-ui-react';
+import axios from 'axios';
+// import { Card, Feed } from 'semantic-ui-react';
 
 import './index.css';
 
 class Testimonies extends Component {
+
+  urlAPI = 'http://localhost:3000/testimonies'; 
+
   constructor(props) {
     super(props);
     this.state = {
-      toto: "tata",
-      age: 37,
-      young: false
+      testimonies: [],
+      current: {}
     };
+  }
+
+  componentDidMount() {
+    console.log("dans componentDidMount()");
+    axios.get(this.urlAPI)
+    .then(result => {
+      const testimonies = result.data;
+      this.setState({ testimonies });
+      console.log("state enregistré");
+    })
+    .catch(error => console.trace(error));
   }
 
   handleClick = (text) => () => {
@@ -29,22 +44,39 @@ class Testimonies extends Component {
       toto: text,
     });
   }
-
-
   
   render(){
     // Tout ce que je return ici sera affiché
+    const { testimonies } = this.state;
 
-    const { toto } = this.state;
     return (
-      <div id="testimonies">
-        <h1 onClick={this.handleClick("titi")}>Titi</h1>
-        <h1 onClick={this.handleClick("tata")}>Tata</h1>
-        <h1 onClick={this.handleClick("tutu")}>Tutu</h1>
-        <p>
-          { toto }
-        </p>
-      </div>
+      <div className="ui people shape">
+          <div className="sides">
+            <div className="side active">
+            {
+              testimonies.map((entry, index) =>
+                
+                <div key={"testimony" + index} className="ui card">
+                  <div className="image">
+                    <img src= { entry.avatar } alt="user-avatar" />
+                  </div>
+                  <div className="content">
+                    <div className="header">{ entry.name }</div>
+                    <div className="description">
+                     { entry.message }
+                    </div>
+                  </div>
+                </div>
+              )
+            }
+            </div>
+            <div class="ui buttons">
+              <button class="ui button">Previous</button>
+              <div class="or" data-text="or"></div>
+              <button class="ui positive button">Next</button>
+            </div>
+          </div>
+        </div>
     );
   }
 }
