@@ -7,15 +7,22 @@ import Navigation from '../Navigation';
 import Testimonies from '../Testimonies';
 import Rooms from '../Room';
 import navElements from '../Navigation/data';
-import roomsElements from '../Room/data';
 import DevMobileApp from '../DevMobileApp';
 import mobileAppElements from '../DevMobileApp/data';
+
+// Transformer le composant en class
+// Utiliser le state pour stocker les données
+
 const App = () => {
     return (
         <div>
             <Navigation mode="horizontal" links={navElements} />
-            <Hello name="Toto" />
-            <Rooms elements={roomsElements} />
+            {/* 
+                faire une boucle sur les  datas (du state)
+                Pour chaque élément fabriquer une section qui
+                affichera la composant demandé
+            */}
+            <Rooms />
             <Services elements={servicesDatas} />
             <Testimonies />
             <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
