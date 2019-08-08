@@ -27,8 +27,13 @@ class Rooms extends Component {
     })
   }
 
-  showRoomDetails = (index) => () => {
-    let currentRoom = this.state.allRooms[index];
+  showRoomDetails = (id) => () => {
+    let currentRoom;
+    this.state.allRooms.forEach(room => {
+      if (room.id === id){
+        currentRoom = room;
+      }
+    });
     this.setState({
       singleRoomView: true,
       currentRoom: currentRoom

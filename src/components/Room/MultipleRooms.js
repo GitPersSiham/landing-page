@@ -9,13 +9,13 @@ class MultipleRooms extends Component {
     return (
         <Card.Group>
           <Button onClick={this.props.scrollLeftAction}>Left</Button>
-          {this.props.rooms.map(({image,  city, night_price, currency}, index) => (
+          {this.props.rooms.map(({image, city, night_price, currency, id}) => (
             <Card>
               <Image src={image} size="small" />
               <Card.Content>
                 <Card.Header>City: {city}</Card.Header>
                 <Card.Description>Price per night: {night_price}{currency}</Card.Description>
-                <Button onClick={this.props.handleChange(index)}>Learn more</Button>
+                <Button onClick={this.props.handleChange(id)}>Learn more</Button>
               </Card.Content>
             </Card>
           )) }
