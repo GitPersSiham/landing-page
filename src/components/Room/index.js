@@ -1,53 +1,91 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
-
-import roomsElements from '../Room/data';
+import axios from 'axios';
+import { Card, Image, Button } from 'semantic-ui-react'
 
 class Rooms extends Component {
 
   constructor(){
     super();
     this.state = {
-      elements: roomsElements, // array
+      elements: [],
+      singleRoomView: false,
+      currentRoom: null,
+      currentRoomsIndex: 0
     }
   }
 
   componentDidMount(){
-    // Executé après le tout premier render
-    console.log('Le composant vient d\'être monté');
+    axios.get("http://localhost:3000/rooms").then(res =>{
+      let elements = res.data;
+      this.setState({elements});
+    })
+  }
+
+  showRoomDetails = (index) => () => {
+    let currentRoom = this.state.elements[index];
     this.setState({
-      elements: [...this.state.elements.reverse()],
-    });
+      singleRoomView: true,
+      currentRoom: currentRoom
+    })
   }
-
-  componentDidUpdate(){
-    // Est appelé après tous les autres render
-    // -> des que state ou props changent
-    console.log('Le composant vient d\'être mis à jour');
-  }
-
-  componentWillUnmount(){
-    // Juste avant que le composant soit démonté par React
+  
+  hideRoomDetails = () => {
+    this.setState({
+      singleRoomView: false
+    })
   }
 
   render() {
     const { elements } = this.state;
     return (
       <div className="container">
-        {
-          elements.map(({name, image,  adress, id, city, description,night_price, currency}) => (
-            <div key={id} className="room-list">
-              <img src={image} alt={id + "-img"} className="image"/>
-              <p><strong>Host</strong>: {name}</p>
-              <p><strong>Address</strong>: {adress}</p>
-              <p><strong>City</strong>: {city}</p>
-              <p><strong>Description</strong>: {description}</p>
-              <p><strong>Night price</strong>: {night_price}{currency}</p>
-            </div>
-          ))
+        <div className="container-list">
+        {!this.state.singleRoomView ?
+          elements.map(({image,  city, night_price, currency}, index) => (
+            <Card>
+              <Image src={image} size="small" />
+              <Card.Content>
+                <Card.Header>
+                  City: {city}
+                </Card.Header>
+              <Card.Description>
+                Night price: {night_price}{currency}
+              </Card.Description>
+            </Card.Content>
+            <Button onClick={this.showRoomDetails(index)}>
+              Découvrir
+            </Button>
+            </Card>
+          )) 
+          :
+          <Card>
+              <Image src={this.state.currentRoom.image} size="small" />
+              <Card.Content>
+              <Card.Header>
+                  Name: {this.state.currentRoom.name}
+                </Card.Header>
+                <Card.Description>
+                  City: {this.state.currentRoom.city}
+                </Card.Description>
+              <Card.Description>
+              <Card.Description>
+                Address: {this.state.currentRoom.adress}
+              </Card.Description>
+                Night price: {this.state.currentRoom.night_price}
+              </Card.Description>
+              <Card.Description>
+                Informations: {this.state.currentRoom.description}
+              </Card.Description>
+            </Card.Content>
+            <Button onClick={this.hideRoomDetails}>
+              X
+            </Button>
+            </Card>
         }
-      </div>   
+          </div>
+        </div> 
     );
   }
 }
@@ -64,7 +102,7 @@ Rooms.propTypes = {
       night_price: PropTypes.number,
       currency: PropTypes.string
     })
-  ).isRequired,
+  ),
 };
 
 export default Rooms;
