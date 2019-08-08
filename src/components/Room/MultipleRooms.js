@@ -11,7 +11,7 @@ class MultipleRooms extends Component {
           <Button onClick={this.props.scrollLeftAction}>Left</Button>
           {this.props.rooms.map(({image, city, night_price, currency, id}) => (
             <Card>
-              <Image src={image} size="small" />
+              <Image src={image} size="small" centered />
               <Card.Content>
                 <Card.Header>City: {city}</Card.Header>
                 <Card.Description>Price per night: {night_price}{currency}</Card.Description>

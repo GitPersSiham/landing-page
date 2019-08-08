@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
 class MultipleRooms extends Component {
 
   render() {
     return (
       <Card>
-        <Image src={this.props.room.image} size="small" />
+        <Image src={this.props.room.image} size="small" centered />
         <Card.Content>
           <Card.Header>Name: {this.props.room.name}</Card.Header>
             <Card.Description>
@@ -17,7 +17,9 @@ class MultipleRooms extends Component {
               <p>Night price: {this.props.room.night_price}</p>
               <p>Information: {this.props.room.description}</p>
             </Card.Description>
-            <Button onClick={this.props.handleChange}>X</Button>
+            <Button onClick={this.props.handleChange}>
+              <Button.Content><Icon name='window close' /></Button.Content>
+            </Button>
         </Card.Content>
       </Card> 
     );

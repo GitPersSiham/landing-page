@@ -69,7 +69,6 @@ class Rooms extends Component {
       newRoom = this.state.allRooms[offsetIndex];
       currentRoomsDisplayed = [newRoom, ...previousRoomsDisplayed.slice(0, -1)];
     }
-    console.log({offset, currentMiddleDisplayIndex, offsetIndex});
     this.setState({currentRoomsDisplayed, currentMiddleDisplayIndex});
   }
 
