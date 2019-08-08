@@ -13,8 +13,8 @@ class Testimonies extends Component {
     };
   }
 
-  handleClick = () => {
-    console.log('clic');
+  handleClick = param => () => {
+    console.log(param);
     // J'aimerais modifier mon state
     // J'utilise setState
     // qui attend en param un objet représentant
@@ -30,7 +30,7 @@ class Testimonies extends Component {
     const { toto } = this.state;
     return (
       <div id="testimonies">
-        <h1 onClick={this.handleClick}>Testimonies</h1>
+        <h1 onClick={this.handleClick("un clic")}>Testimonies</h1>
         <p>
           { toto }
         </p>
