@@ -8,6 +8,7 @@ import Testimonies from '../Testimonies';
 import Rooms from '../Room';
 import navElements from '../Navigation/data';
 import DevMobileApp from '../DevMobileApp';
+import MobileApp from '../MobileApp';
 import mobileAppElements from '../DevMobileApp/data';
 
 // Transformer le composant en class
@@ -25,6 +26,7 @@ const App = () => {
             <Rooms />
             <Services elements={servicesDatas} />
             <Testimonies />
+            <MobileApp />
             <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
         </div>
     );
