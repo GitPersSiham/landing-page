@@ -1,29 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
 import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
-class MultipleRooms extends Component {
-
-  render() {
+const SingleRoom = (props) => {
     return (
       <Card>
-        <Image src={this.props.room.image} size="small" centered />
+        <Image src={props.room.image} size="small" centered />
         <Card.Content>
-          <Card.Header>Name: {this.props.room.name}</Card.Header>
+          <Card.Header>Name: {props.room.name}</Card.Header>
             <Card.Description>
-              <p>City: {this.props.room.city}</p>
-              <p>Address: {this.props.room.adress}</p>
-              <p>Night price: {this.props.room.night_price}</p>
-              <p>Information: {this.props.room.description}</p>
+              <p>City: {props.room.city}</p>
+              <p>Address: {props.room.adress}</p>
+              <p>Night price: {props.room.night_price}</p>
+              <p>Information: {props.room.description}</p>
             </Card.Description>
-            <Button onClick={this.props.handleChange}>
+            <Button onClick={props.handleChange}>
               <Button.Content><Icon name='window close' /></Button.Content>
             </Button>
         </Card.Content>
       </Card> 
     );
-  }
 }
 
 // Rooms.propTypes = {
@@ -41,4 +37,4 @@ class MultipleRooms extends Component {
   //   ),
   // };
 
-export default MultipleRooms;
+export default SingleRoom;

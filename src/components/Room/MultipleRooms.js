@@ -1,32 +1,28 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import './index.css';
 import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
-class MultipleRooms extends Component {
-
-  render() {
+const MultipleRooms = (props) => {
     return (
         <Card.Group>
-          <Button onClick={this.props.scrollLeftAction}>
+          <Button onClick={props.scrollLeftAction}>
             <Button.Content><Icon name='chevron circle left' /></Button.Content>
           </Button>
-          {this.props.rooms.map(({image, city, night_price, currency, id}) => (
+          {props.rooms.map(({image, city, night_price, currency, id}) => (
             <Card>
               <Image src={image} size="small" centered />
               <Card.Content>
                 <Card.Header>City: {city}</Card.Header>
                 <Card.Description>Price per night: {night_price}{currency}</Card.Description>
-                <Button onClick={this.props.handleChange(id)}>Learn more</Button>
+                <Button onClick={props.handleChange(id)}>Learn more</Button>
               </Card.Content>
             </Card>
           )) }
-          <Button onClick={this.props.scrollRightAction}>
+          <Button onClick={props.scrollRightAction}>
             <Button.Content><Icon name='chevron circle right' /></Button.Content>
           </Button>
         </Card.Group> 
     );
-  }
 }
 
 // Rooms.propTypes = {
