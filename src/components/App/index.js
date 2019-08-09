@@ -1,5 +1,5 @@
 
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import Hello from '../Hello';
 import Services from '../Services';
 import servicesDatas from '../Services/data';
@@ -36,29 +36,26 @@ const navElements = [
     },
 ];
 
-class App extends Component {
-    constructor(props) {
-        super(props);
+function App() {
+    const [elements, setElements] = useState([])
 
-        this.state = {
-            elements: navElements
-        };
-    }
-    render() {
-        return (
-            <div>
-                <Navigation mode="horizontal" links={this.state.navElements} />
-                {this.state.elements.map(({ title, name, Component }) => (
-                    <section id={name} key={name}>
-                        <Component /> 
-                    </section>
-                ))}
-                <Rooms />
-                <Services elements={servicesDatas} />
-                <Testimonies />
-                <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
-            </div>
-        );
-    }
+    useEffect(() => {
+        setElements(navElements)
+    })
+
+    return (
+        <div>
+            <Navigation mode="horizontal" links={elements} />
+            {elements.map(({ title, name, Component }) => (
+                <section id={name} key={name}>
+                    <Component /> 
+                </section>
+            ))}
+            <Rooms />
+            <Services elements={servicesDatas} />
+            <Testimonies />
+            <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
+        </div>
+    );
 };
 export default App;
