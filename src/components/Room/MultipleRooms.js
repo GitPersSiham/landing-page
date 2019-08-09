@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
-import { Card, Image, Button } from 'semantic-ui-react'
+import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
 class MultipleRooms extends Component {
 
   render() {
     return (
         <Card.Group>
-          <Button onClick={this.props.scrollLeftAction}>Left</Button>
+          <Button onClick={this.props.scrollLeftAction}>
+            <Button.Content><Icon name='chevron circle left' /></Button.Content>
+          </Button>
           {this.props.rooms.map(({image, city, night_price, currency, id}) => (
             <Card>
               <Image src={image} size="small" centered />
@@ -19,7 +21,9 @@ class MultipleRooms extends Component {
               </Card.Content>
             </Card>
           )) }
-          <Button onClick={this.props.scrollRightAction}>Right</Button>
+          <Button onClick={this.props.scrollRightAction}>
+            <Button.Content><Icon name='chevron circle right' /></Button.Content>
+          </Button>
         </Card.Group> 
     );
   }
