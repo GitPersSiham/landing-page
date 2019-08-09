@@ -9,13 +9,13 @@ import Rooms from '../Room';
 import navElements from '../Navigation/data';
 import DevMobileApp from '../DevMobileApp';
 import mobileAppElements from '../DevMobileApp/data';
-
+import './index.css';
 // Transformer le composant en class
 // Utiliser le state pour stocker les données
 
 const App = () => {
     return (
-        <div>
+        <div id="app">
             <Navigation mode="horizontal" links={navElements} />
             {/* 
                 faire une boucle sur les  datas (du state)

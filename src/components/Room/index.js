@@ -1,70 +1,99 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import './index.css';
+import axios from 'axios';
+import MultipleRooms from './MultipleRooms.js';
+import SingleRoom from './SingleRoom.js'
 
-import roomsElements from '../Room/data';
+const Rooms = () => {
 
-class Rooms extends Component {
+  const [state, setState] = useState({
+      allRooms: [],
+      singleRoomView: false,
+      currentRoom: null,
+      currentRoomsDisplayed: [],
+      currentMiddleDisplayIndex: null,
+      displayOffset: null,
+      numberOfMultipleRooms: 3
+  });
 
-  constructor(){
-    super();
-    this.state = {
-      elements: roomsElements, // array
-    }
-  }
+    useEffect(() => {
+    axios.get("http://localhost:3000/rooms").then(res =>{
+      let allRooms = res.data;
+      let currentMiddleDisplayIndex = Math.floor(state.numberOfMultipleRooms / 2);
+      let currentRoomsDisplayed = allRooms.slice(0, state.numberOfMultipleRooms);
+      let displayOffset = Math.floor(state.numberOfMultipleRooms / 2);
+      setState({...state, allRooms, currentRoomsDisplayed, currentMiddleDisplayIndex, displayOffset});
+    })
+  }, []);
 
-  componentDidMount(){
-    // Executé après le tout premier render
-    console.log('Le composant vient d\'être monté');
-    this.setState({
-      elements: [...this.state.elements.reverse()],
+  const showRoomDetails = (id) => () => {
+    let currentRoom;
+    state.allRooms.forEach(room => {
+      if (room.id === id){
+        currentRoom = room;
+      }
     });
+    setState({
+      ...state,
+      singleRoomView: true,
+      currentRoom: currentRoom
+    })
+  }
+  
+  const hideRoomDetails = () => {
+    setState({
+      ...state,
+      singleRoomView: false
+    })
   }
 
-  componentDidUpdate(){
-    // Est appelé après tous les autres render
-    // -> des que state ou props changent
-    console.log('Le composant vient d\'être mis à jour');
+  const scroll = (direction) => () => {
+    let previousRoomsDisplayed = state.currentRoomsDisplayed;
+    let previousMiddleDisplayIndex = state.currentMiddleDisplayIndex;
+    let itemTotal = state.allRooms.length;
+    let offset = state.displayOffset;
+    let currentMiddleDisplayIndex;
+    let offsetIndex;
+    let currentRoomsDisplayed = previousRoomsDisplayed;
+    let newRoom;
+    if (direction === "right"){
+      currentMiddleDisplayIndex = previousMiddleDisplayIndex < itemTotal -1 ? previousMiddleDisplayIndex + 1 : 0;
+      offsetIndex = (currentMiddleDisplayIndex + offset < itemTotal) ? (currentMiddleDisplayIndex + offset) : ((currentMiddleDisplayIndex + offset) - itemTotal);
+      newRoom = state.allRooms[offsetIndex];
+      currentRoomsDisplayed = [...previousRoomsDisplayed.slice(1), newRoom];
+    } else if (direction === "left"){
+      currentMiddleDisplayIndex = previousMiddleDisplayIndex > 0 ? previousMiddleDisplayIndex - 1 : itemTotal - 1;
+      offsetIndex = currentMiddleDisplayIndex - offset > -1 ? currentMiddleDisplayIndex - offset : ((itemTotal) + (currentMiddleDisplayIndex - offset))
+      newRoom = state.allRooms[offsetIndex];
+      currentRoomsDisplayed = [newRoom, ...previousRoomsDisplayed.slice(0, -1)];
+    }
+    setState({...state, currentRoomsDisplayed, currentMiddleDisplayIndex});
   }
 
-  componentWillUnmount(){
-    // Juste avant que le composant soit démonté par React
-  }
-
-  render() {
-    const { elements } = this.state;
     return (
       <div className="container">
-        {
-          elements.map(({name, image,  adress, id, city, description,night_price, currency}) => (
-            <div key={id} className="room-list">
-              <img src={image} alt={id + "-img"} className="image"/>
-              <p><strong>Host</strong>: {name}</p>
-              <p><strong>Address</strong>: {adress}</p>
-              <p><strong>City</strong>: {city}</p>
-              <p><strong>Description</strong>: {description}</p>
-              <p><strong>Night price</strong>: {night_price}{currency}</p>
-            </div>
-          ))
+        {state.singleRoomView ?
+          <SingleRoom room={state.currentRoom} handleChange={hideRoomDetails} /> : 
+          <MultipleRooms rooms={state.currentRoomsDisplayed} handleChange={showRoomDetails} scrollRightAction={scroll("right")} scrollLeftAction={scroll("left")} />
         }
-      </div>   
+      </div> 
     );
-  }
 }
 
-Rooms.propTypes = {
-  elements: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string,
-      image: PropTypes.string,
-      adress: PropTypes.string,
-      id: PropTypes.string,
-      city: PropTypes.string,
-      description: PropTypes.string,
-      night_price: PropTypes.number,
-      currency: PropTypes.string
-    })
-  ).isRequired,
-};
+// Rooms.propTypes = {
+//   elements: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       name: PropTypes.string,
+//       image: PropTypes.string,
+//       adress: PropTypes.string,
+//       id: PropTypes.string,
+//       city: PropTypes.string,
+//       description: PropTypes.string,
+//       night_price: PropTypes.number,
+//       currency: PropTypes.string
+//     })
+//   ),
+// };
 
 export default Rooms;
