@@ -1,3 +1,8 @@
-#testimonies {
-   text-align: center;
+form {
+  width : 70%;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+
+
 }
