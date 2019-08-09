@@ -1,84 +1,64 @@
-import React, { Component } from 'react';
-import { Icon } from 'semantic-ui-react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import { Card, Feed } from 'semantic-ui-react';
-
 import './index.css';
 
-class Testimonies extends Component {
+const urlAPI = 'http://localhost:3000/testimonies'; 
 
-  urlAPI = 'http://localhost:3000/testimonies'; 
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      testimonies: [],
-      current: {}
-    };
-  }
+const Testimonies = () => {
 
-  componentDidMount() {
-    console.log("dans componentDidMount()");
-    axios.get(this.urlAPI)
-    .then(result => {
-      const testimonies = result.data;
-      this.setState({ testimonies });
-      console.log("state enregistré");
-    })
-    .catch(error => console.trace(error));
-  }
+  useEffect(() => {
+    axios.get(urlAPI)
+      .then(result => {
+        const testimonies = result.data;
+        console.log({testimonies});
+        setTestimonies({ 
+          ...testimonies,
+           name: testimonies.name + '!',
+           message: testimonies.message + '!',
+        });
+        //console.log("state enregistré");
+      })
+      .catch(error => console.error(error));
+  }, []);
 
-  handleClick = (text) => () => {
-    // handleClick est executée en recevant un param
-    // lors de la fabrication de mes h1 (3 fois)
-    // A chaque exécution, je renvoie une nouvelle fonction
-    // qui sera executée au clic sur un h1 donné (tata, toto, tutu).
-    // Et c'est cette fonction retournée qui se charge de faire la
-    // modif dans le state avec le bon paramètre
-    console.log('clic');
-    // J'aimerais modifier mon state
-    // J'utilise setState
-    // qui attend en param un objet représentant
-    // les modifs à apporter dans le state
-    this.setState({
-      toto: text,
-    });
-  }
-  
-  render(){
-    // Tout ce que je return ici sera affiché
-    const { testimonies } = this.state;
+  const [testimonies, setTestimonies] = useState([]);
 
-    return (
-      <div className="ui people shape">
-          <div className="sides">
-            <div className="side active">
-            {
-              testimonies.map((entry, index) =>
-                
-                <div key={"testimony" + index} className="ui card">
-                  <div className="image">
-                    <img src= { entry.avatar } alt="user-avatar" />
-                  </div>
-                  <div className="content">
-                    <div className="header">{ entry.name }</div>
-                    <div className="description">
-                     { entry.message }
-                    </div>
+
+ const {name, avatar, message} = testimonies;
+
+  return (
+    <div className="ui people shape">
+        <div className="sides">
+          <div className="side active">
+
+              <div className="ui card">
+                <div className="image">
+                  <img src= { avatar } alt="user-avatar" />
+                </div>
+                <div className="content">
+                  <div className="header">{ name }</div>
+                  <div className="description">
+                   { message }
                   </div>
                 </div>
-              )
-            }
-            </div>
-            <div class="ui buttons">
-              <button class="ui button">Previous</button>
-              <div class="or" data-text="or"></div>
-              <button class="ui positive button">Next</button>
-            </div>
+              </div>
+            
+          
+          </div>
+          <div className="ui buttons"> 
+            <button className="ui button" ><i aria-hidden="true" className="left arrow icon"></i>Previous
+              
+            </button>
+            <div className="or" data-text=""></div>
+            <button className="ui button">Next
+              <i aria-hidden = "true" className = "right arrow icon" > </i>
+            </button>
           </div>
         </div>
-    );
-  }
+      </div>
+  );
 }
 
 export default Testimonies;
