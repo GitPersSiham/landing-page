@@ -9,7 +9,7 @@ const MultipleRooms = (props) => {
             <Button.Content><Icon name='chevron circle left' /></Button.Content>
           </Button>
           {props.rooms.map(({image, city, night_price, currency, id}) => (
-            <Card>
+            <Card key={id}>
               <Image src={image} size="small" centered />
               <Card.Content>
                 <Card.Header>City: {city}</Card.Header>

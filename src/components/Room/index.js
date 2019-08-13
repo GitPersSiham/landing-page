@@ -17,15 +17,19 @@ const Rooms = () => {
       numberOfMultipleRooms: 3
   });
 
-    useEffect(() => {
+  const fetchRooms = () => {
     axios.get("http://localhost:3000/rooms").then(res =>{
       let allRooms = res.data;
       let currentMiddleDisplayIndex = Math.floor(state.numberOfMultipleRooms / 2);
       let currentRoomsDisplayed = allRooms.slice(0, state.numberOfMultipleRooms);
       let displayOffset = Math.floor(state.numberOfMultipleRooms / 2);
       setState({...state, allRooms, currentRoomsDisplayed, currentMiddleDisplayIndex, displayOffset});
-    })
-  }, []);
+    });
+  }
+
+    useEffect(fetchRooms, []);
+
+
 
   const showRoomDetails = (id) => () => {
     let currentRoom;
@@ -72,7 +76,7 @@ const Rooms = () => {
   }
 
     return (
-      <div className="container">
+      <div className="rooms-container">
         {state.singleRoomView ?
           <SingleRoom room={state.currentRoom} handleChange={hideRoomDetails} /> : 
           <MultipleRooms rooms={state.currentRoomsDisplayed} handleChange={showRoomDetails} scrollRightAction={scroll("right")} scrollLeftAction={scroll("left")} />

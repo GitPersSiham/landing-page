@@ -32,7 +32,7 @@ const navElements = [
     {
         title: "DevMobileApp",
         name: "devmobileapp",
-        Component: DevMobileApp
+        Component: MobileApp
     },
 ];
 
@@ -55,7 +55,6 @@ function App() {
             <Services elements={servicesDatas} />
             <Testimonies />
             <MobileApp />
-            <DevMobileApp text="Random text" dataMobileApp={mobileAppElements} />
         </div>
     );
 };
