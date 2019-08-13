@@ -1,24 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./MobileApp.css";
-/* import PropTypes from "prop-types";
- */
+import { Button } from 'semantic-ui-react';
 
- const MobileApp = () => {
+const MobileApp = () => {
 
-  useEffect(() => {
-    console.log('useEffect');
+  const fetchData = () => {
     axios
-    .get('http://localhost:3000/features')
-    .then(res => {
-      console.log(res.data);
-      const features = res.data;
-      setFeatures(features);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-  }, []);
+      .get('http://localhost:3000/features')
+      .then(res => {
+        const features = res.data;
+        setFeatures(features);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  useEffect(fetchData, []);
 
   const [featureToShow, setFeatureToShow] = useState(0);
 
@@ -29,7 +28,7 @@ import "./MobileApp.css";
   const handleClick = button => () => {
     const currentIndex = featureToShow;
 
-    if (button === "previous"){
+    if (button === "previous") {
 
       if (currentIndex === 0) {
 
@@ -43,7 +42,7 @@ import "./MobileApp.css";
 
     } else {
 
-      if (currentIndex === (features.length -1))
+      if (currentIndex === (features.length - 1))
 
         return setFeatureToShow(0)
 
@@ -52,27 +51,31 @@ import "./MobileApp.css";
         return setFeatureToShow(featureToShow + 1)
 
       }
-      
+
     }
   }
 
+  const { background, title, message } = feature;
+
   return (
-    <div 
-      className="container" 
-      style = {{backgroundImage:`url(${feature.background})`}}
+    <div
+      className="mobile-container"
+      style={{ backgroundImage: `url(${background})` }}
     >
-      <button
+      <Button
         onClick={handleClick("previous")}
       >
         Précédent
-      </button>
-      {feature.title}
-      {feature.message}
-      <button
+      </Button>
+      <div className="mobile-content">
+        <h2>{title}</h2>
+        <p>{message}</p>
+      </div>
+      <Button
         onClick={handleClick("next")}
       >
         Suivant
-      </button>
+      </Button>
     </div>
   );
 }

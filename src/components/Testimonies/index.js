@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 // import { Card, Feed } from 'semantic-ui-react';
 import './index.css';
-import { Button, Header, Image, Modal } from 'semantic-ui-react';
-import {Checkbox, Form } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
 
 const urlAPI = 'http://localhost:3000/testimonies'; 
 
@@ -13,7 +13,6 @@ const Testimonies = () => {
     axios.get(urlAPI)
       .then(result => {
         const testimonies = result.data;
-        console.log({testimonies});
         setTestimonies(testimonies);
       })
       .catch(error => console.error(error));

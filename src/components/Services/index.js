@@ -12,6 +12,22 @@ class Services extends Component {
         };
     }
 
+    getCategoriesList = () => {
+        const { items } = this.state;
+        const categories = items.reduce((acc, item)=>{
+            return {
+                ...acc,
+                [item.category]: true
+            }
+        }, {});
+        return Object.keys(categories);
+    }
+
+    getServicesFromCategory = (category) => {
+        // Faire le code qui renvoie un tableau filté
+        return this.state.items.filter(item => item.category === category);
+    }
+
     componentDidMount() {
         fetch("http://localhost:3000/services")
             .then(res => res.json())
@@ -36,7 +52,7 @@ class Services extends Component {
     }
 
     render() {
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded } = this.state;
         if (error) {
             return <div>Erreur : {error.message}</div>;
         } else if (!isLoaded) {
@@ -47,10 +63,16 @@ class Services extends Component {
 
                 <div className="service-component">
                     {
-                        items.map(item => (
-                            <div className="service-container" key={item.id}>
-                                <p className="title">{item.id} : {item.title}</p>
-                                <p className="categorie">Categorie : {item.category} </p>
+                        this.getCategoriesList().map(category => (
+                            <div className="service-container" key={category}>
+                                <h3 className="title">{category}</h3>
+                                <ul>
+                                {
+                                    this.getServicesFromCategory(category).map(service => (
+                                        <li key={service.title}>{service.title}</li>
+                                    ))
+                                }
+                                </ul>
                             </div>
                         ))
                     }

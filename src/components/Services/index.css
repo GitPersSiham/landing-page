@@ -1,40 +1,21 @@
 .service-component {
-  border: solid black 5px;
-  border-radius: 30px;
+
   padding: 2em;
   margin: 2em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background-image: url("https://media.giphy.com/media/suymzXyDbuEPC/source.gif");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+
   height: 31em;
 }
 
 .service-container {
   margin: 0.5em;
-  border: 2px solid black;
-  border-radius: 4px;
-  width: 25%;
+  flex: 1;
   padding: 0.5em;
-  background-color: rgba(29, 30, 34, 0.5);
-  border-radius: 30px;
-  transition-duration: 0.5s;
-  color: white;
-  /* opacity: 0.9; */
 }
 
-.service-container:hover {
-  width: 28%;
-  font-weight: bold;
-  font-size: 1.2em;
-  background-color: rgb(29, 30, 34);
-  color: #1abc9c;
-  border: 2px solid #1abc9c;
-}
-
-.title, .categorie {
-  text-align: center;
+.service-container h3 {
+  text-align: left;
+  margin-left: -30px;
 }

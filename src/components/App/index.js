@@ -1,17 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import Hello from '../Hello';
 import Services from '../Services';
-import servicesDatas from '../Services/data';
 import Navigation from '../Navigation';
 import Testimonies from '../Testimonies';
 import Rooms from '../Room';
-// import navElements from '../Navigation/data';
-import DevMobileApp from '../DevMobileApp';
 import MobileApp from '../MobileApp';
-import mobileAppElements from '../DevMobileApp/data';
 import './index.css';
-// Transformer le composant en class
-// Utiliser le state pour stocker les données
 
 const navElements = [
     {
@@ -51,10 +44,6 @@ function App() {
                     <Component /> 
                 </section>
             ))}
-            <Rooms />
-            <Services elements={servicesDatas} />
-            <Testimonies />
-            <MobileApp />
         </div>
     );
 };
