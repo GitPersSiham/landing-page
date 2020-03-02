@@ -1,17 +1,16 @@
 import React from 'react';
 import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
-const MultipleRooms = (props) => {
+const MultipleProducts = (props) => {
     return (
-        <Card.Group>
+        <Card.Group >
           <Button onClick={props.scrollLeftAction}>
             <Button.Content><Icon name='chevron circle left' /></Button.Content>
           </Button>
-          {props.rooms.map(({image, city, night_price, currency, id}) => (
+          {props.products.map(({image, night_price, currency, id}) => (
             <Card key={id}>
               <Image src={image} size="small" centered />
               <Card.Content>
-                <Card.Header>City: {city}</Card.Header>
                 <Card.Description>Price per night: {night_price}{currency}</Card.Description>
                 <Button onClick={props.handleChange(id)}>Learn more</Button>
               </Card.Content>
@@ -39,4 +38,4 @@ const MultipleRooms = (props) => {
   //   ),
   // };
 
-export default MultipleRooms;
+export default MultipleProducts;

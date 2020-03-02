@@ -1,17 +1,16 @@
 import React from 'react';
 import { Card, Image, Button, Icon } from 'semantic-ui-react'
 
-const SingleRoom = (props) => {
+const SingleProduct = (props) => {
     return (
       <Card>
-        <Image src={props.room.image} size="small" centered />
+        <Image src={props.product.image} size="small" centered />
         <Card.Content>
-          <Card.Header>Name: {props.room.name}</Card.Header>
+          <Card.Header>Name: {props.product.name}</Card.Header>
             <Card.Description>
-              <p>City: {props.room.city}</p>
-              <p>Address: {props.room.adress}</p>
-              <p>Night price: {props.room.night_price}</p>
-              <p>Information: {props.room.description}</p>
+              <p>Address: {props.product.adress}</p>
+              <p>Night price: {props.product.night_price}</p>
+              <p>Information: {props.product.description}</p>
             </Card.Description>
             <Button onClick={props.handleChange}>
               <Button.Content><Icon name='window close' /></Button.Content>
@@ -36,4 +35,4 @@ const SingleRoom = (props) => {
   //   ),
   // };
 
-export default SingleRoom;
+export default SingleProduct;
