@@ -23,19 +23,5 @@ const MultipleProducts = (props) => {
     );
 }
 
-// Rooms.propTypes = {
-  //   elements: PropTypes.arrayOf(
-  //     PropTypes.shape({
-  //       name: PropTypes.string,
-  //       image: PropTypes.string,
-  //       adress: PropTypes.string,
-  //       id: PropTypes.string,
-  //       city: PropTypes.string,
-  //       description: PropTypes.string,
-  //       night_price: PropTypes.number,
-  //       currency: PropTypes.string
-  //     })
-  //   ),
-  // };
 
 export default MultipleProducts;
