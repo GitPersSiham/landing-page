@@ -14,7 +14,6 @@ h1 {
 
 @media (min-width: 1084px) {
   h1 {
-    color: red;
     font-size: 3em !important; } }
 
 /* nvbar css */
@@ -29,21 +28,13 @@ h1 {
     padding: 20px;
     font-size: 15px; } }
 
+/* style paragraphe */
 p {
   text-align: justify;
   letter-spacing: 2px;
   font-size: 20px;
   padding: 50px; }
 
-/*@media (max-width: 1068px ){
-  p{
-   font-size: 16px;
-   color: 
-rebeccapurple;
-  }
-
-   }*/
 @media (max-width: 500px) {
   p {
-    font-size: 16px;
-    color: rebeccapurple; } }
+    font-size: 16px; } }

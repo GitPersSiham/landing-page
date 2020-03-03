@@ -75,7 +75,7 @@ const Products = () => {
   }
 
     return (
-      <div className="rooms-container">
+      <div className="products-container">
         {state.singleProductView ?
           <SingleProduct product={state.currentProduct} handleChange={hideProductDetails} /> : 
           <MultipleProducts products={state.currentProductsDisplayed} handleChange={showProductDetails} scrollRightAction={scroll("right")} scrollLeftAction={scroll("left")} />
