@@ -7,6 +7,7 @@ import Contact from '../Contact';
 import Popin from '../Popin';
 import {  BrowserRouter  as Router,Route, Switch,Link } from 'react-router-dom';
 import './App.css';
+import logo from "./../../../src/logo.svg";
 
 
 function App() {
@@ -22,14 +23,17 @@ function App() {
            <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a><Link to ={'/'} className="nav-link" style={{color:'white',fontSize:''}}> Acceuil </Link></a>
+                <a><Link to ={'/'} className="nav-link" style={{color:'white'}}> Acceuil </Link></a>
               </li>
               <li className="nav-item">
-                <a><Link to ={'/products'} className="nav-link" style={{color:'white',fontSize:''}}> Nos produits</Link></a>
+                <a><Link to ={'/products'} className="nav-link" style={{color:'white'}}> Nos produits</Link></a>
               </li>
               <li className="nav-item">
-                <a><Link to ={'/contact'} className="nav-link" style={{color:'white',fontSize:''}}> Contact</Link></a>
-             </li>    
+                <a><Link to ={'/contact'} className="nav-link" style={{color:'white'}}> Contact</Link></a>
+             </li>
+             <li className="nav-item">
+              <a href="#"><img src={logo} id="logo" className="nav-link"  alt="my-logo"/></a>
+               </li>    
            </ul>
          </div>  
       </nav>
@@ -39,7 +43,6 @@ function App() {
                 <Route path="/products/:id" component={SingleProduct}/>
                 <Route path="/contact" component={Contact} />
                 <Route render={() => (
-                  
                     <div className="w3-container w3-center w3-animate-zoom">  
                         <h1>Bienvenue sur notre site</h1>
                         <p><span className="Text">Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens, quo per turbulentos seditionum concitores occultius distributo et tumor consenuit militum et salus est in tuto locata praefecti. deinde cibo abunde perlato castra die praedicto sunt mota.</span></p>

@@ -30,3 +30,8 @@ Les points à prendre en compte :
 Si tu es full stack :
 La liste des produits doit être récupérée par un web service (avec recherche simple).
 
+Start
+npm install
+npm start 
+
+Lancer d'abord la fake api ensuite l'application landing-page
