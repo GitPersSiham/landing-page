@@ -17,7 +17,8 @@ const Products = () => {
   });
 
   const fetchProducts = () => {
-    axios.get("http://localhost:3000/products").then(res =>{
+   /* axios.get("http://localhost:3000/products").then(res =>{*/
+   axios.get("https://app-service-28.herokuapp.com/products").then(res =>{ 
       let allProducts = res.data;
       let currentMiddleDisplayIndex = Math.floor(state.numberOfMultipleProducts / 2);
       let currentProductsDisplayed = allProducts.slice(0, state.numberOfMultipleProducts);
