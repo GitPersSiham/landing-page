@@ -32,7 +32,7 @@ function App() {
                 <a><Link to ={'/contact'} className="nav-link" style={{color:'white'}}> Contact</Link></a>
              </li>
              <li className="nav-item">
-              <a href="#"><img src={logo} id="logo" className="nav-link"  alt="my-logo"/></a>
+              <a href="/"><img src={logo} id="logo" className="nav-link"  alt="my-logo"/></a>
                </li>    
            </ul>
          </div>  
@@ -45,7 +45,12 @@ function App() {
                 <Route render={() => (
                     <div className="w3-container w3-center w3-animate-zoom">  
                         <h1>Bienvenue sur notre site</h1>
-                        <p><span className="Text">Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens, quo per turbulentos seditionum concitores occultius distributo et tumor consenuit militum et salus est in tuto locata praefecti. deinde cibo abunde perlato castra die praedicto sunt mota.</span></p>
+                        <div className="text">
+                        <p>Igitur nihil opibus itinera mox nihil adnexam cum tempore ibique pascebantur tempore maritima maritima ora tempore provincialium praetenturis viatorum densis.
+                        Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri ductante barbaricos pagos adventans velut mutato.
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        </div>
+
                         <Popin />
                         <div className="App">
                   <header className="App-header">

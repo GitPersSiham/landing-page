@@ -29,15 +29,21 @@ h1 {
     font-size: 15px; } }
 
 /* style paragraphe */
-p {
+.text p {
   text-align: justify;
-  letter-spacing: 2px;
   font-size: 20px;
-  padding: 50px; }
+  padding-top: 20px;
+  margin: 50px; }
 
 @media (max-width: 500px) {
-  p {
-    font-size: 16px; } }
+  .text p {
+    font-size: 16px;
+    word-spacing: 0.1em;
+    text-align: initial;
+    margin: 0px;
+    margin-top: 20px;
+    margin: 5px;
+    padding-top: 20px; } }
 
 #logo {
   max-width: 10%;
