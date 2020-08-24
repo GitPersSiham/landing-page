@@ -14,7 +14,7 @@ return(
     <Col xs={12} md={4}>
    <h6>Oui, j'ai déjà acheté </h6>
    <form>
-   <button type="button" className="btn btn-primary  " >Cliquer ici </button>
+   <button type="button" className="btn btn-primary" >Cliquer ici </button>
 </form>
     </Col>
     <Col xs={12} md={4}>
@@ -26,7 +26,7 @@ return(
     <Col xs={12} md={4}>
     <h6>Non, j'ai un projet d'achat</h6>       
     <form>
-   <button type="button" className="btn btn-primary  " >Cliquer ici </button>
+   <button type="button" className="btn btn-primary" >Cliquer ici </button>
 </form>    
    </Col>
   </Row>
