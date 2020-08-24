@@ -24,7 +24,7 @@ return(
 </form>    
     </Col>
     <Col xs={12} md={4}>
-    <h6>Non, j'ai un projet d'achat</h6>       
+    <h6>Non, je n'ai un projet d'achat</h6>       
     <form>
    <button type="button" className="btn btn-primary" >Cliquer ici </button>
 </form>    
