@@ -39,5 +39,4 @@ npm start
 
 Lancer d'abord la fake api ensuite l'application landing-page
 
-https://landing-page-12.herokuapp.com/
->>>>>>> 534f8fefd28549cea20f9f9569723420aca05176
+https://landing-page-712.herokuapp.com/
