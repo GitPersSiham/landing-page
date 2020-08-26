@@ -1,6 +1,14 @@
 import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import './Page.css';
+import lampeTmg from "../../img/lampe-design.jpg";
+import ThéièreImg from "../../img/theiere-noire.jpg";
+import carafImg from "../../img/carafe.jpg";
+import oiseauImg from "../../img/oiseau.jpg";
+import mugImg from "../../img/mug.jpg";
+import assietImg from "../../img/assiette.jpg";
+
+
 
 const Page =() => {
   return(
@@ -12,36 +20,36 @@ const Page =() => {
   <Container>
   <Row>
     <Col xs={12} md={4}>
-      <img src='../img/lampe-design.jpg' height="200" width="200" className="img" alt="lampe" />
-       <h6>Lampe-design</h6>
+      <img src={lampeTmg} height="200" width="200" className="img" alt="lampe" />
+       <span className="product"><p>Lampe-design</p></span>
        
     </Col>
     <Col xs={12} md={4}>
-      <img src="../img/theiere-noire.jpg" height="200" width="200" className="img" alt="théière"/>
-      <h6>Théière-design</h6>
+      <img src={ThéièreImg} height="200" width="200" className="img" alt="théière"/>
+      <span className="product"><p>Théière-design</p></span>
        
     </Col>
     <Col xs={12} md={4}>
-      <img src="../img/caraffe.jpg" height="200" width="200" className="img" alt="carafe"/>
-      <h6>carafe-design</h6>
+      <img src={carafImg} height="200" width="200" className="img" alt="carafe"/>
+     <span className="product" ><p>carafe-design</p></span>
        
     </Col>
   </Row>
   <hr />
   <Row>
     <Col xs={12} md={4}>
-      <img src='../img/oiseau.jpg' height="200" width="200" className="img" alt="oiseau"/>
-      <h6>oiseau-design</h6>
+      <img src={oiseauImg} height="200" width="200" className="img" alt="oiseau"/>
+      <span className="product" ><p>oiseau-design</p></span>
      
     </Col>
     <Col xs={12} md={4}>
-      <img src="../img/mug.jpg" height="200" width="200" className="img" alt="mug"/>
-      <h6>Mug-design</h6>
+      <img src={mugImg} height="200" width="200" className="img" alt="mug"/>
+      <span className="product"> <p>Mug-design</p></span>
       
     </Col>
     <Col xs={12} md={4}>
-      <img src="../img/assiette.jpg" height="200" width="200" className="img" alt="toile"/>
-      <h6>Toile-design</h6>
+      <img src={assietImg} height="200" width="200" className="img" alt="toile"/>
+      <span className="product" ><p>Toile-design</p></span>
       
     </Col>
   </Row>

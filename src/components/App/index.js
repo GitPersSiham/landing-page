@@ -5,6 +5,7 @@ import Products from '../Product';
 import Page from '../Page';
 import Contact from '../Contact';
 import Popin from '../Popin';
+import presentationImg from "../../img/logo.png";
 import {  BrowserRouter  as Router,Route, Switch,Link } from 'react-router-dom';
 import './App.css';
 
@@ -22,7 +23,7 @@ function App() {
            <div className="collapse navbar-collapse" id="collapsibleNavbar">
             <ul className="navbar-nav">
               <li className="nav-item">
-                <a><Link to ={'/'} className="nav-link" style={{color:'white',fontSize:''}}> Acceuil </Link></a>
+                <a><Link to ={'/'} className="nav-link" style={{color:'white',fontSize:''}}> Accueil </Link></a>
               </li>
               <li className="nav-item">
                 <a><Link to ={'/products'} className="nav-link" style={{color:'white',fontSize:''}}> Nos produits</Link></a>
@@ -41,12 +42,19 @@ function App() {
                 <Route render={() => (
                   
                     <div className="w3-container w3-center w3-animate-zoom">  
-                        <h1>Bienvenue sur notre site</h1>
-                        <p><span className="Text">Quod opera consulta cogitabatur astute, ut hoc insidiarum genere Galli periret avunculus, ne eum ut praepotens acueret in fiduciam exitiosa coeptantem. verum navata est opera diligens hocque dilato Eusebius praepositus cubiculi missus est Cabillona aurum secum perferens, quo per turbulentos seditionum concitores occultius distributo et tumor consenuit militum et salus est in tuto locata praefecti. deinde cibo abunde perlato castra die praedicto sunt mota.</span></p>
+                    <div className="head">
+                      <h1>Bienvenue sur notre site</h1>
+                      </div>
+                
+                    <p>Igitur nihil opibus itinera mox nihil adnexam cum tempore ibique pascebantur tempore maritima maritima ora
+                    tempore provincialium praetenturis viatorum densis.Nemo quaeso miretur, si post exsudatos labores itinerum . Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri </p>
+                   <p>Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri 
+                    ductante barbaricos pagos adventans velut mutato. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
+
                         <Popin />
                         <div className="App">
                   <header className="App-header">
-                  <img src='../img/logo.png' className="App-logo " alt="presentation"/>
+                  <img src={presentationImg} className="App-logo " alt="presentation"/>
                   </header>
                   </div>
                   <br/>

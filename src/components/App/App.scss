@@ -1,3 +1,4 @@
+
 .App-logo{
 
 max-width: 100%;
@@ -6,10 +7,17 @@ display: block;
 margin: 0 auto;
 }
 
+
 /* Style heading */
 h1{
 
     font-weight: bold;
+    
+}
+
+.head{
+
+  margin: 50px;  
 }
 
 @media (max-width: 768px){ 
@@ -26,9 +34,6 @@ h1{
 
     }
 }
-
-
-
 
 /* nvbar css */
 @media (min-width: 1068px){ 
@@ -52,16 +57,18 @@ h1{
 p {
     
  text-align: justify;
- letter-spacing: 2px;
+ align-items: center;
  font-size: 20px;
- padding: 50px;
-  }
-
-  
-  
-@media (max-width: 500px) {
-    p{
-        font-size: 16px;
-    
-       }
+ word-spacing: normal;
+ 
 }
+  
+
+@media (max-width: 768px){ 
+    p{
+       
+        text-align: center;
+        word-spacing: 3px;
+    }
+}
+

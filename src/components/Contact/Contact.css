@@ -8,16 +8,22 @@ h6 {
   text-align: center; }
 
 /* version mobile */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   h6 {
     text-align: center; } }
 
+.btn.btn-primary {
+  display: block;
+  padding: 20px;
+  text-align: center;
+  margin: 0 auto; }
+
 /* style btn */
 /* version mobile */
-@media (max-width: 500px) {
+@media (max-width: 768px) {
   .btn-primary {
     display: block;
-    margin: auto;
     margin-top: 20px;
     padding: 5px;
-    font-size: 10px; } }
+    font-size: 10px;
+    text-align: center; } }
