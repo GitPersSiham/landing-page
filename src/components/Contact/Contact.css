@@ -5,12 +5,14 @@
 
 h6 {
   padding: 20px;
-  text-align: center; }
+  text-align: center;
+  text-transform: capitalize; }
 
 /* version mobile */
 @media (max-width: 768px) {
   h6 {
-    text-align: center; } }
+    text-align: center;
+    text-transform: capitalize; } }
 
 .btn.btn-primary {
   display: block;
