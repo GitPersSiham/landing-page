@@ -1,6 +1,4 @@
-<<<<<<< HEAD
 
-=======
 # landing-page
 
  Realisation d'un design d'une landing page avec react
