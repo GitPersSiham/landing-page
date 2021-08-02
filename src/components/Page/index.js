@@ -19,17 +19,17 @@ const Page =() => {
     
   <Container>
   <Row>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={lampeTmg} height="200" width="200" className="img" alt="lampe" />
        <span className="product"><p>Lampe-design</p></span>
        
     </Col>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={ThéièreImg} height="200" width="200" className="img" alt="théière"/>
       <span className="product"><p>Théière-design</p></span>
        
     </Col>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={carafImg} height="200" width="200" className="img" alt="carafe"/>
      <span className="product" ><p>carafe-design</p></span>
        
@@ -37,17 +37,17 @@ const Page =() => {
   </Row>
   <hr />
   <Row>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={oiseauImg} height="200" width="200" className="img" alt="oiseau"/>
       <span className="product" ><p>oiseau-design</p></span>
      
     </Col>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={mugImg} height="200" width="200" className="img" alt="mug"/>
       <span className="product"> <p>Mug-design</p></span>
       
     </Col>
-    <Col xs={12} md={4}>
+    <Col sm={4}>
       <img src={assietImg} height="200" width="200" className="img" alt="toile"/>
       <span className="product" ><p>Toile-design</p></span>
       

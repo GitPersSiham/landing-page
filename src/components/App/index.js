@@ -46,9 +46,9 @@ function App() {
                       <h1>Bienvenue sur notre site</h1>
                       </div>
                 
-                    <p>Igitur nihil opibus itinera mox nihil adnexam cum tempore ibique pascebantur tempore maritima maritima ora
+                    <p className="paragraph">Igitur nihil opibus itinera mox nihil adnexam cum tempore ibique pascebantur tempore maritima maritima ora
                     tempore provincialium praetenturis viatorum densis.Nemo quaeso miretur, si post exsudatos labores itinerum . Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri </p>
-                   <p>Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri 
+                   <p className="paragraph">Nemo quaeso miretur, si post exsudatos labores itinerum longos congestosque adfatim commeatus fiducia vestri 
                     ductante barbaricos pagos adventans velut mutato. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod .</p>
 
                         <Popin />
